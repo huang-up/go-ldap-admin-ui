@@ -42,8 +42,8 @@ router.beforeEach(async(to, from, next) => {
           const isAdmin = userInfo.roles && userInfo.roles.some(role => role.ID === 1)
 
           // 如果是普通用户且要访问的不是个人主页，则重定向到个人主页
-          if (!isAdmin && to.path !== '/profile/index') {
-            next('/profile/index')
+          if (!isAdmin && to.path !== '/') {
+            next('/')
             return
           }
 

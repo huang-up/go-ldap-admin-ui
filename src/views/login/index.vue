@@ -62,13 +62,13 @@ import JSEncrypt from 'jsencrypt'
 export default {
   name: 'Login',
   data() {
-    const validatePassword = (rule, value, callback) => {
-      if (value.length < 6) {
-        callback(new Error('The password can not be less than 6 digits'))
-      } else {
-        callback()
-      }
-    }
+    // const validatePassword = (rule, value, callback) => {
+    //   if (value.length < 6) {
+    //     callback(new Error('The password can not be less than 6 digits'))
+    //   } else {
+    //     callback()
+    //   }
+    // }
     return {
       imgSrc: require('@/assets/backgd-image/login.jpeg'),
       loginForm: {
@@ -76,8 +76,8 @@ export default {
         password: ''
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur' }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+        username: [{ required: true, trigger: 'blur' }]
+        // password: [{ required: true, trigger: 'blur', validator: validatePassword }]
       },
       passwordType: 'password',
       publicKey: process.env.VUE_APP_PUBLIC_KEY,
