@@ -59,6 +59,7 @@ export default {
         // { ID: 7, isPin: false, pinOrder: '', isBanner: true, bannerImg: '', bannerSort: -1, categoryId: 3, name: '光', url: 'http://192.168.1.5:8100/', img: '', sort: -1 }
 
       ],
+      bannerItems: [],
       pinLoading: false
     }
   },
@@ -70,6 +71,7 @@ export default {
   created() {
     this.getCategorys()
     this.getItems()
+    this.getBannerItems()
   },
   methods: {
     handleClick(tab, event) {
@@ -100,6 +102,10 @@ export default {
       const { data } = await itemList({ searchText })
       this.items = data
       this.pinLoading = false
+    },
+    async getBannerItems() {
+      const { data } = await itemList({ isBanner: true })
+      this.bannerItems = data
     },
     async handlePin(item) {
       this.pinLoading = true
